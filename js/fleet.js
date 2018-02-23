@@ -283,6 +283,8 @@ window.onload = function () {
     this.menuShow = false;
     this.animated = false;
     this.sound = true;
+    var noSleep = new NoSleep();
+
 
     // Menu Toggle
     $(".menu-toggle").click(function () {
@@ -315,9 +317,8 @@ window.onload = function () {
     var circle = $("#circle");
     circle.click(function () {
 
+        noSleep.enable(); //prevents screen from sleeping
         var circleListener = null;
-
-
         if (that.animated == false) {
             var randomFile = Math.floor(Math.random() * audioFiles.length);
 
@@ -373,6 +374,7 @@ window.onload = function () {
 
             that.animated = true;
         } else {
+            noSleep.disable(); //allows screen to sleep
             circle.removeClass("animated");
             circle.off('webkitAnimationEnd oanimationend msAnimationEnd animationend')
             that.animated = false;
