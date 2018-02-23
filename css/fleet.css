@@ -135,6 +135,9 @@
 
 .content {
     position: absolute;
+    display: flex;
+    justify-self: center;
+    align-self: center;
     z-index: 2;
     color: white;
     font-size: 60px;

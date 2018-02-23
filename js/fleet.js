@@ -314,39 +314,58 @@ window.onload = function () {
     // On Circle Click
     var circle = $("#circle");
     circle.click(function () {
+
         var circleListener = null;
+
+
         if (that.animated == false) {
+            var randomFile = Math.floor(Math.random() * audioFiles.length);
+
+            var audio = document.getElementById('audio');
+            var source = document.getElementById('audioSource');
+
+            source.src = 'audio/' + audioFiles[randomFile];
+
+            audio.pause();
+            audio.load(); //call this to just preload the audio without playing
+            audio.play(); //call this to play the song right away
+
+            //Get title of audio
+            jsmediatags.read(source.src, {
+                onSuccess: function (tag) {
+                    $('.content').text(tag.tags.title);
+                },
+                onError: function (error) {
+                    console.log(error);
+                }
+            });
+
             circle.addClass('animated');
             circleListener = circle.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', that,
                 function (e) {
                     circle.removeClass("animated");
+                    randomFile = Math.floor(Math.random() * audioFiles.length);
+
+                    source.src = 'audio/' + audioFiles[randomFile];
+
+                    //Get title of audio
+                    jsmediatags.read(source.src, {
+                        onSuccess: function (tag) {
+                            $('.content').text(tag.tags.title);
+                        },
+                        onError: function (error) {
+                            console.log(error);
+                        }
+                    });
 
                     if (e.data.sound) {
                         //audio selector
-                        var randomFile = Math.floor(Math.random() * audioFiles.length);
-
-                        var audio = document.getElementById('audio');
-                        var source = document.getElementById('audioSource');
-                        source.src = 'audio/' + audioFiles[randomFile];
-
                         audio.pause();
                         audio.load(); //call this to just preload the audio without playing
                         audio.play(); //call this to play the song right away
-
-                        //Get title of audio
-                        jsmediatags.read(source.src, {
-                            onSuccess: function (tag) {
-                                $('.content').text(tag.tags.title);
-                            },
-                            onError: function (error) {
-                                console.log(error);
-                            }
-                        });
                     }
 
-
                     //Hack to retrigger animation
-
                     setTimeout(function () {
                         circle.addClass("animated");
                     }, 1)
@@ -360,9 +379,19 @@ window.onload = function () {
         }
     });
 
-    //On Slider change
+    //On Slider change (click)
     var slider = $('.slider');
     slider.mouseup(function () {
+        var speed = slider.val();
+        $('.circle.animated').css({
+            animationDuration: speed + 's',
+            MozAnimationDuration: speed + 's',
+            WebkitAnimationDuration: speed + 's'
+        });
+    });
+
+    //On Slider change (touch)
+    slider.on('touchend', function () {
         var speed = slider.val();
         $('.circle.animated').css({
             animationDuration: speed + 's',
