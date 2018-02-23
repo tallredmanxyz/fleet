@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/fleet.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.0/jsmediatags.min.js"></script>
+
+    <script src="js/fleet.js"></script>
+
+
+</head>
+<body>
+<audio id="audio" controls="controls" hidden>
+    <source id="audioSource" src=""></source>
+    Your browser does not support the audio format.
+</audio>
+<div class="top-nav">
+    <div class="left-nav">
+        <h1>fleet</h1>
+    </div>
+    <div class="right-nav">
+        <div class="sound-toggle">
+            <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="31" viewBox="0 0 45 31" version="1.1"
+                 xmlns="http://www.w3.org/2000/svg">
+                <title>Vector</title>
+                <g id="Canvas" transform="translate(-740 515)">
+                    <g id="Sound">
+                        <use xlink:href="#path0_fill" transform="translate(740 -514.276)" fill="#FFFFFF"/>
+                        <use xlink:href="#path1_fill" transform="translate(740 -514.276)" fill="#FFFFFF"/>
+                        <use xlink:href="#path2_fill" transform="translate(740 -514.276)" fill="#FFFFFF"/>
+                        <use xlink:href="#path3_fill" transform="translate(740 -514.276)" fill="#FFFFFF"/>
+                    </g>
+                </g>
+                <defs>
+                    <path id="path0_fill"
+                          d="M 0 12.2762C 0 9.51482 2.23858 7.27624 5 7.27624L 12.1086 7.27624C 14.87 7.27624 17.1086 9.51482 17.1086 12.2762L 17.1086 18.0262C 17.1086 20.7877 14.87 23.0262 12.1086 23.0262L 5 23.0262C 2.23858 23.0262 0 20.7877 0 18.0262L 0 12.2762Z"/>
+                    <path id="path1_fill"
+                          d="M 8.55139 16.8028C 7.50071 15.656 7.50071 13.8964 8.55139 12.7496L 19.3351 0.979438C 21.1837 -1.0382 24.5471 0.269631 24.5471 3.00604L 24.5471 26.5464C 24.5471 29.2828 21.1837 30.5907 19.3351 28.573L 8.55139 16.8028Z"/>
+                    <path id="path2_fill" class="sound-on"
+                          d="M 29.4237 8.82594C 28.8629 8.25882 28.8629 7.33932 29.4237 6.77219C 29.9846 6.20507 30.8939 6.20507 31.4548 6.77219L 43.9845 19.442C 44.5453 20.0091 44.5453 20.9286 43.9845 21.4958C 43.4236 22.0629 42.5143 22.0629 41.9534 21.4958L 29.4237 8.82594Z"/>
+                    <path id="path3_fill" class="sound-on"
+                          d="M 43.9845 8.82594C 44.5453 8.25882 44.5453 7.33932 43.9845 6.77219C 43.4236 6.20507 42.5143 6.20507 41.9534 6.77219L 29.4237 19.442C 28.8629 20.0091 28.8629 20.9286 29.4237 21.4958C 29.9846 22.0629 30.8939 22.0629 31.4548 21.4958L 43.9845 8.82594Z"/>
+                </defs>
+            </svg>
+        </div>
+        <div class="menu-toggle">
+            <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="25" viewBox="0 0 38 25" version="1.1"
+                 xmlns="http://www.w3.org/2000/svg">
+                <title>Menu</title>
+                <g id="Canvas" transform="translate(-839 513)">
+                    <g id="Vector">
+                        <use xlink:href="#path4_fill" transform="translate(839 -512.991)" fill="#FFFFFF"/>
+                        <use xlink:href="#path5_fill" transform="translate(839 -512.991)" fill="#FFFFFF"/>
+                        <use xlink:href="#path6_fill" transform="translate(839 -512.991)" fill="#FFFFFF"/>
+                    </g>
+                </g>
+                <defs>
+                    <path id="path4_fill"
+                          d="M 35.235 5.28335C 36.6939 5.27827 37.8766 4.09143 37.8766 2.63247C 37.8766 1.17352 36.6939 -0.00506982 35.235 1.64004e-05L 2.64165 0.113644C 1.18271 0.118731 8.93351e-17 1.30557 0 2.76452C -8.93351e-17 4.22347 1.18271 5.40207 2.64165 5.39698L 35.235 5.28335Z"/>
+                    <path id="path5_fill"
+                          d="M 35.235 15.2834C 36.6939 15.2783 37.8766 14.0914 37.8766 12.6325C 37.8766 11.1735 36.6939 9.99493 35.235 10L 2.64165 10.1136C 1.18271 10.1187 8.93351e-17 11.3056 0 12.7645C -8.93351e-17 14.2235 1.18271 15.4021 2.64165 15.397L 35.235 15.2834Z"/>
+                    <path id="path6_fill"
+                          d="M 35.235 24.2834C 36.6939 24.2783 37.8766 23.0914 37.8766 21.6325C 37.8766 20.1735 36.6939 18.9949 35.235 19L 2.64165 19.1136C 1.18271 19.1187 8.93351e-17 20.3056 0 21.7645C -8.93351e-17 23.2235 1.18271 24.4021 2.64165 24.397L 35.235 24.2834Z"/>
+                </defs>
+            </svg>
+        </div>
+    </div>
+</div>
+<div class="background">
+    <div id="circle" class="circle">
+
+    </div>
+
+    <div class="content">
+        Hello!
+    </div>
+    <div class="slidecontainer">
+        <input type="range" min="6" max="20" value="13" class="slider" id="myRange">
+    </div>
+    <div class="wave-container">
+        <div class="wave">
+            <svg width="1920" height="501" viewBox="0 0 1920 501" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                 style="width: 100%;  overflow: visible">
+                <title>Wave</title>
+                <g id="Canvas" transform="translate(1001 -20)">
+                    <g id="Subtract">
+                        <use xlink:href="#path7_fill" transform="translate(-1001 20)" fill="url(#paint0_linear)" style="mix-blend-mode:darken"/>
+                    </g>
+                </g>
+                <defs>
+                    <linearGradient id="paint0_linear" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.37711e-13 640.425 -2248.99 3.92147e-14 2029.99 1.12133e-13)">
+                        <stop offset="0" stop-color="#588383"/>
+                        <stop offset="0.441989" stop-color="#A18383"/>
+                        <stop offset="1" stop-color="#C58383"/>
+                    </linearGradient>
+                    <path id="path7_fill" d="M 0 505L 1920 505L 1920 20.1153C 1809.66 -6.85881 1622.89 -0.0454388 1522 19.9247C 1367.83 57.4247 890 121.925 600 31.9247C 412.861 -26.153 176.583 5.30017 0 44.9961L 0 505Z"/>
+                </defs>
+            </svg>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
